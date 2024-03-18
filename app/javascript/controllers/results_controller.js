@@ -1,13 +1,18 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static outlets = ["debounce"]
+  static outlets = ['debounce']
+  static targets = ['container']
 
-  static targets = ["container"]
+  select(event) {
+    event.preventDefault()
 
-  foo(event) {
-    const value = event.target.innerText
-    this.debounceOutlet.alert(value)
+    const movie = {
+      caption: event.target.innerText,
+      code: event.target.querySelector('input').value
+    }
+
+    this.debounceOutlet.alert(movie)
     this.containerTarget.innerText = ''
   }
 }

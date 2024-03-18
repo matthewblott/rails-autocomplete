@@ -1,7 +1,8 @@
 <% movies.each do |movie| %>
-  <br>
-  <a href="#" data-action="results#foo">
-    <%= hidden_field_tag :movie_id, movie.id %>
-    <%= highlight(movie.title, params[:title_search]) %>
-  </a> 
+  <div>
+    <a data-action="results#select" href="#">
+      <%= hidden_field_tag :movie_id, movie.id %>
+      <%= highlight(movie.title, params[:title_search]) %>
+    </a>
+  </div>
 <% end %>

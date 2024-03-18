@@ -1,10 +1,11 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ["form", "search"]
+  static targets = ['form', 'search', 'display']
 
-  alert(message) {
-    this.searchTarget.value = message
+  alert(movie) {
+    this.searchTarget.value = movie.caption
+    this.displayTarget.textContent = movie.code
   }
 
   search() {
