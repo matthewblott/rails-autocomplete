@@ -11,7 +11,6 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "redis", ">= 4.0.1"
 gem "faker", "~> 3.2"
-gem "rails_live_reload", "~> 0.3.6"
 
 group :development, :test do
   gem "debug", platforms: %i[mri windows]

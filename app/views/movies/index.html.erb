@@ -1,7 +1,7 @@
 <h1>Movies</h1>
 
-<%= form_with url: search_movies_path, method: :post, data: {controller: "debounce", debounce_target: "form" } do |form| %>
-  <%= form.search_field :title_search, data: { action: "input->debounce#search" } %>
+<%= form_with url: search_movies_path, method: :post, data: {controller: "debounce", debounce_target: "form" }, html: { id: 'message'} do |form| %>
+  <%= form.search_field :title_search, data: { action: "input->debounce#search", debounce_target: "search" } %>
 <% end %>
 
-<div id="search_results"></div>
+<div id="results" data-controller="results" data-results-debounce-outlet="#message" data-results-target="container"></div>
