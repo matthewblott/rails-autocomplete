@@ -1,6 +1,6 @@
 <% movies.each do |movie| %>
   <div>
-    <a data-action="results#select" href="#">
+    <a data-action="search-results#select" href="#">
       <%= hidden_field_tag :movie_id, movie.id %>
       <%= highlight(movie.title, params[:title_search]) %>
     </a>

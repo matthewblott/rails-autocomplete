@@ -10,8 +10,8 @@ class MoviesController < ApplicationController
       format.turbo_stream do
         render(
           turbo_stream: turbo_stream.update(
-            "results",
-            partial: "movies/results",
+            "search_results",
+            partial: "movies/search_results",
             locals: {movies: @movies}
           )
         )

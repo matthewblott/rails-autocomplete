@@ -1,11 +1,12 @@
 <h1>Movies</h1>
 
 <%= form_with url: search_movies_path, method: :post,
-  data: {controller: "debounce", debounce_target: "form" }, html: { id: 'message'} do |form| %>
+  data: {controller: "search-field", search_field_target: "form" }, html: { id: 'message'} do |form| %>
 
-  <%= hidden_field_tag :movie_id, '', data: { debounce_target: "code" } %>
-  <%= form.search_field :title_search, data: { action: "input->debounce#search", debounce_target: "search" } %>
-  <%= content_tag :span, '', data: { debounce_target: "display" } %>
+  <%= text_field_tag 'whatever_field_id', '', data: { search_field_target: "code" } %><br>
+  <%= form.search_field :title_search, data: { action: "input->search-field#search", search_field_target: "search" } %>
+  <%= content_tag :span, '', data: { search_field_target: "display" } %>
 <% end %>
 
-<div id="results" data-controller="results" data-results-debounce-outlet="#message" data-results-target="container"></div>
+<div id="search_results" data-controller="search-results" data-search-results-search-field-outlet="#message"
+  data-search-results-target="container"></div>
