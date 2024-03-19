@@ -1,12 +1,13 @@
 <h1>Movies</h1>
 
-<%= form_with url: search_movies_path, method: :post,
-  data: {controller: "search-field", search_field_target: "form" }, html: { id: 'message'} do |form| %>
+<form action="<%= search_movies_path %>" id="search-form" method="post"></form>
 
-  <%= text_field_tag 'whatever_field_id', '', data: { search_field_target: "code" } %><br>
-  <%= form.search_field :title_search, data: { action: "input->search-field#search", search_field_target: "search" } %>
-  <%= content_tag :span, '', data: { search_field_target: "display" } %>
-<% end %>
+<field data-controller="search-field" id="message">
+  <input type="hidden" data-search-field-target="code">
+  <input type="search" name="q" data-search-field-target="query" form="search-form" data-action="input->search-field#search">
+  <button form="search-form" type="submit" data-search-field-target="submit" style="display: none;"></button>
+  <span data-search-field-target="display"></span>
+</field>
 
 <div id="search_results" data-controller="search-results" data-search-results-search-field-outlet="#message"
   data-search-results-target="container"></div>
