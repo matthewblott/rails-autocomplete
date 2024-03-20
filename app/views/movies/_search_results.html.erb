@@ -2,7 +2,7 @@
   <div>
     <a data-action="search-results#select" href="#">
       <%= hidden_field_tag :movie_id, movie.id %>
-      <%= highlight(movie.title, params[:q]) %>
+      <%= highlight(movie.name, params[:q]) %>
     </a>
   </div>
 <% end %>

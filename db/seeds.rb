@@ -1,3 +1,7 @@
 150.times do
-  Movie.create(title: Faker::Movie.unique.title)
+  Movie.create(name: Faker::Movie.unique.title)
+end
+
+50.times do
+  Country.create(name: Faker::Address.unique.country)
 end

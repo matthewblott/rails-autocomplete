@@ -1,9 +1,9 @@
-class MoviesController < ApplicationController
+class CountriesController < ApplicationController
   def search
     if params[:q].present?
-      @movies = Movie.name_like(params[:q])
+      @countries = Country.name_like(params[:q])
     else
-      @movies = []
+      @countries = []
     end
 
     respond_to do |format|
@@ -11,8 +11,8 @@ class MoviesController < ApplicationController
         render(
           turbo_stream: turbo_stream.update(
             "search_results",
-            partial: "movies/search_results",
-            locals: {movies: @movies}
+            partial: "countries/search_results",
+            locals: {countries: @countries}
           )
         )
       end

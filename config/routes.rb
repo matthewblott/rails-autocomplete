@@ -5,5 +5,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources(:countries) do
+    collection do
+      post(:search)
+    end
+  end
+
   root("movies#index")
 end
