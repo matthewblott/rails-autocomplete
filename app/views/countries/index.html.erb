@@ -1,5 +1,9 @@
-<h1>Countries</h1>
 
+<div style="display: flex; gap: 20px">
+
+  <div>
+
+<h2>Countries</h2>
 <form action="<%= search_countries_path %>" id="search-form" method="post"></form>
 
 <field data-controller="search-field" id="message">
@@ -11,3 +15,23 @@
 
 <div id="search_results" data-controller="search-results" data-search-results-search-field-outlet="#message"
   data-search-results-target="container"></div>
+  </div>
+  <div>
+
+<h2>Movies</h2>
+
+<form action="<%= search_movies_path %>" id="search-form-2" method="post"></form>
+
+<field data-controller="search-field" id="message-2">
+  <input type="hidden" data-search-field-target="code">
+  <input type="search" name="q" data-search-field-target="query" form="search-form-2" data-action="input->search-field#search">
+  <button form="search-form-2" type="submit" data-search-field-target="submit" style="display: none;"></button>
+  <span data-search-field-target="display"></span>
+</field>
+
+<div id="movie_search_results" data-controller="search-results" data-search-results-search-field-outlet="#message-2"
+  data-search-results-target="container"></div>
+
+  </div>
+</div>
+
