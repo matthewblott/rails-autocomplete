@@ -1,8 +1,0 @@
-<% countries.each do |country| %>
-  <div>
-    <a data-action="search-results#select" href="#">
-      <%= hidden_field_tag :country_id, country.id %>
-      <%= highlight(country.name, params[:q]) %>
-    </a>
-  </div>
-<% end %>
