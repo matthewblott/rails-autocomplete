@@ -2,7 +2,11 @@
   <div>
     <a data-action="search-results#select" href="#">
       <%= hidden_field_tag :item_id, key  %>
-      <%= highlight(value, params[:q]) %>
+      <% if defined? q %>
+        <%= highlight(value, q) %>
+      <% else %>
+        <%= value %>
+      <% end %>
     </a>
   </div>
 <% end %>

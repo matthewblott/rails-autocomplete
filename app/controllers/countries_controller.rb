@@ -1,7 +1,8 @@
 class CountriesController < ApplicationController
   def search
-    countries = if params[:q].present?
-      Country.name_like(params[:q])
+    q = params[:q]
+    countries = if q.present?
+      Country.name_like(q)
     else
       []
     end
@@ -15,7 +16,7 @@ class CountriesController < ApplicationController
           turbo_stream: turbo_stream.update(
             "country_search_results",
             partial: "search_results",
-            locals: {items:}
+            locals: {items: items}
           )
         )
       end

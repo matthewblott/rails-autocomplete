@@ -1,7 +1,8 @@
 class MoviesController < ApplicationController
   def search
-    movies = if params[:q].present?
-      Movie.name_like(params[:q])
+    q = params[:q]
+    movies = if q.present?
+      Movie.name_like(q)
     else
       []
     end
@@ -15,7 +16,7 @@ class MoviesController < ApplicationController
           turbo_stream: turbo_stream.update(
             "movie_search_results",
             partial: "search_results",
-            locals: {items:}
+            locals: {items: items, q: q}
           )
         )
       end
