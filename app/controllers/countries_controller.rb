@@ -1,4 +1,7 @@
 class CountriesController < ApplicationController
+  def index
+  end
+
   def search
     q = params[:q]
     countries = if q.present?
@@ -16,7 +19,7 @@ class CountriesController < ApplicationController
           turbo_stream: turbo_stream.update(
             "country_search_results",
             partial: "search_results",
-            locals: {items: items}
+            locals: {items: items, q: q}
           )
         )
       end

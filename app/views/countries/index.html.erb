@@ -4,6 +4,8 @@
     <form action="<%= search_countries_path %>" id="search-form-1" method="post"></form>
     <%= render partial: "search_field", locals: { 
       field_name: 'country_id', 
+      field_value: '50',
+      field_text: 'Costa Rica',
       form_id: "search-form-1", 
       search_results_id: 'country_search_results' } %>
   </div>

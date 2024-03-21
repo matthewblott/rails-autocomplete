@@ -1,12 +1,12 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ['submit', 'query', 'display', 'code']
+  static targets = ['submit', 'query', 'text', 'value']
 
   display(item) {
     this.queryTarget.value = item.text
-    this.displayTarget.textContent = item.value
-    this.codeTarget.value = item.value
+    this.textTarget.textContent = item.value
+    this.valueTarget.value = item.value
   }
 
   search() {
