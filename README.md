@@ -1,24 +1,14 @@
-# README
+# Rails Autocomplete Example
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple application that displays a filtered list of movies and countries dependent on user input.
 
-Things you may want to cover:
+Getting started:
+```
+bundle install
 
-* Ruby version
+rails db:migrate
+rails db:seed
 
-* System dependencies
+rails server
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
