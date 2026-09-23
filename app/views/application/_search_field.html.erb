@@ -1,12 +1,27 @@
 <% field_id = "_#{SecureRandom.uuid}" %>
 <field data-controller="search-field" id="<%= field_id %>">
-  <input type="hidden" data-search-field-target="value"
-    name="<%= if defined? field_name; field_name end %>" value="<%= if defined? field_value; field_value end %>">
-  <input type="search" name="q" data-search-field-target="query" form="<%= form_id %>" placeholder="Search"
+  <input
+    type="hidden"
+    data-search-field-target="value"
+    name="<%= if defined? field_name; field_name end %>"
+    value="<%= if defined? field_value; field_value end %>"
+  >
+  <input
+    type="search"
+    name="q"
+    data-search-field-target="query"
+    form="<%= form_id %>"
+    placeholder="Search"
     data-action="input->search-field#search"
-  value="<%= if defined? field_text; field_text end %>">
-    <button form="<%= form_id %>" type="submit" data-search-field-target="submit" style="display: none;"></button>
-    <span data-search-field-target="text"><%= if defined? field_value; field_value end %></span>
-    </field>
-    <div id="<%= search_results_id %>" data-controller="search-results" data-search-results-search-field-outlet="#<%= field_id %>"
-  data-search-results-target="container"></div>
+    value="<%= if defined? field_text; field_text end %>"
+  >
+  <button form="<%= form_id %>" type="submit" data-search-field-target="submit" style="display: none;"></button>
+  <span data-search-field-target="text"><%= if defined? field_value; field_value end %></span>
+</field>
+<div
+  id="<%= search_results_id %>"
+  data-controller="search-results"
+  data-search-results-search-field-outlet="#<%= field_id %>"
+  data-search-results-target="container"
+>
+</div>
